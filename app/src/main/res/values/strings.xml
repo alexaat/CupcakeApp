@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">CupcakeApp</string>
+    <string name="one_cupcake">One Cupcake</string>
+    <string name="six_cupcakes">Six Cupcakes</string>
+    <string name="twelve_cupcakes">Twelve Cupcakes</string>
+    <string name="order_cupcakes">Order Cupcakes</string>
+    <string name="image_of_cupcake">Image of cupcake</string>
+    <string name="cancel">Cancel</string>
+    <string name="next">Next</string>
+    <string name="vanilla">Vanilla</string>
+    <string name="chocolate">Chocolate</string>
+    <string name="red_velvet">Red Velvet</string>
+    <string name="salted_caramel">Salted Caramel</string>
+    <string name="coffee">Coffee</string>
+    <string name="quantity">QUANTITY</string>
+    <string name="flavor">FLAVOR</string>
+    <string name="pickup_date">PICKUP DATE</string>
+    <string name="send_order_to_another_app">Send Order to Another App</string>
+    <string name="total_format">TOTAL %s</string>
+    <string name="subtotal_format">Subtotal %s</string>
+    <string name="order_summary_format">Quantity: %1$s\nFlavor: %2$s\nPickup date: %3$s\nTotal: %4$s\n\nThank you!</string>
+    <string name="no_intent_available_to_handle_action">No Intent available to handle action</string>
+    <string name="new_cupcakes_order">New Cupcakes Order</string>
+    <string name="quantity_format">%1$d %2$s</string>
+    <plurals name="quantity_format">
+        <item quantity="one">cupcake</item>
+        <item quantity="other">cupcakes</item>
+    </plurals>
+
+</resources>

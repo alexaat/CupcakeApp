@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".fragments.DateFragment">
+
+            <Button
+                android:id="@+id/cancelButton"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:onClick="@{()->viewModel.cancelOrder()}"
+                android:text="@string/cancel"
+                app:layout_constraintEnd_toStartOf="@+id/nextButton"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/divider2"
+                app:layout_constraintTop_toBottomOf="@+id/subtotalTextView" />
+
+            <Button
+                android:id="@+id/nextButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:onClick="@{()->viewModel.navigateToSummary()}"
+                android:text="@string/next"
+                app:layout_constraintBottom_toBottomOf="@+id/cancelButton"
+                app:layout_constraintEnd_toEndOf="@+id/divider2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cancelButton" />
+
+            <RadioGroup
+                android:id="@+id/pickupDateRadioGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RadioButton
+                    android:id="@+id/dateOneRadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="@{viewModel.pickupDate.equals(dateOneRadioButton.getText())}"
+                    android:onClick="@{()->viewModel.setPickupDate(dateOneRadioButton.getText())}"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    tools:text="Wed 7 Dec" />
+
+                <RadioButton
+                    android:id="@+id/dateTwoRadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="@{viewModel.pickupDate.equals(dateTwoRadioButton.getText())}"
+                    android:onClick="@{()->viewModel.setPickupDate(dateTwoRadioButton.getText())}"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    tools:text="Thur 9 Dec" />
+
+                <RadioButton
+                    android:id="@+id/dateThreeRadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="@{viewModel.pickupDate.equals(dateThreeRadioButton.getText())}"
+                    android:onClick="@{()->viewModel.setPickupDate(dateThreeRadioButton.getText())}"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    tools:text="Fri 10 Dec" />
+
+                <RadioButton
+                    android:id="@+id/dateFourRadioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="@{viewModel.pickupDate.equals(dateFourRadioButton.getText())}"
+                    android:onClick="@{()->viewModel.setPickupDate(dateFourRadioButton.getText())}"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    tools:text="Sat 11 Dec" />
+            </RadioGroup>
+
+
+            <TextView
+                android:id="@+id/subtotalTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                app:layout_constraintEnd_toEndOf="@+id/divider2"
+                app:layout_constraintTop_toBottomOf="@+id/divider2"
+                tools:text="15.00" />
+
+            <View
+                android:id="@+id/divider2"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/pickupDateRadioGroup"
+                app:layout_constraintTop_toBottomOf="@+id/pickupDateRadioGroup" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.alexaat.cupcakeapp.model.OrderViewModel" />
+    </data>
+</layout>

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".fragments.SummaryFragment">
+
+            <Button
+                android:id="@+id/sendOrderButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:onClick="@{()->viewModel.shareOrder()}"
+                android:text="@string/send_order_to_another_app"
+                app:layout_constraintEnd_toEndOf="@+id/totalTextView"
+                app:layout_constraintStart_toStartOf="@+id/divider5"
+                app:layout_constraintTop_toBottomOf="@+id/totalTextView" />
+
+            <Button
+                android:id="@+id/cancelButton"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:onClick="@{()->viewModel.cancelOrder()}"
+                android:text="@string/cancel"
+                app:layout_constraintEnd_toEndOf="@+id/sendOrderButton"
+                app:layout_constraintStart_toStartOf="@+id/sendOrderButton"
+                app:layout_constraintTop_toBottomOf="@+id/sendOrderButton" />
+
+            <TextView
+                android:id="@+id/quantityLableTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/quantity"
+                android:textAppearance="?attr/textAppearanceBody1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/quantityTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@{@string/quantity_format(viewModel.quantity, @plurals/quantity_format(viewModel.quantity))}"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                app:layout_constraintStart_toStartOf="@+id/quantityLableTextView"
+                app:layout_constraintTop_toBottomOf="@+id/quantityLableTextView"
+                tools:text="6 cupcakes" />
+
+            <TextView
+                android:id="@+id/flavorLableTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/flavor"
+                android:textAppearance="?attr/textAppearanceBody1"
+                app:layout_constraintStart_toStartOf="@+id/divider3"
+                app:layout_constraintTop_toBottomOf="@+id/divider3" />
+
+            <TextView
+                android:id="@+id/flavorTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@{viewModel.flavor.toString()}"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                app:layout_constraintStart_toStartOf="@+id/flavorLableTextView"
+                app:layout_constraintTop_toBottomOf="@+id/flavorLableTextView"
+                tools:text="Vanilla" />
+
+            <TextView
+                android:id="@+id/pickupDateLableTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/pickup_date"
+                android:textAppearance="?attr/textAppearanceBody1"
+                app:layout_constraintStart_toStartOf="@+id/divider4"
+                app:layout_constraintTop_toBottomOf="@+id/divider4" />
+
+            <TextView
+                android:id="@+id/pickupdateTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@{viewModel.pickupDate}"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                app:layout_constraintStart_toStartOf="@+id/pickupDateLableTextView"
+                app:layout_constraintTop_toBottomOf="@+id/pickupDateLableTextView"
+                tools:text="Wed 8 Dec" />
+
+            <TextView
+                android:id="@+id/totalTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                app:layout_constraintEnd_toEndOf="@+id/divider5"
+                app:layout_constraintTop_toBottomOf="@+id/divider5"
+                tools:text="TOTAL 15.00" />
+
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/quantityTextView"
+                app:layout_constraintTop_toBottomOf="@+id/quantityTextView" />
+
+            <View
+                android:id="@+id/divider4"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/flavorTextView"
+                app:layout_constraintTop_toBottomOf="@+id/flavorTextView" />
+
+            <View
+                android:id="@+id/divider5"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/pickupdateTextView"
+                app:layout_constraintTop_toBottomOf="@+id/pickupdateTextView" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.alexaat.cupcakeapp.model.OrderViewModel" />
+    </data>
+
+</layout>

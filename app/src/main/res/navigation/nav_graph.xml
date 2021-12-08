@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.alexaat.cupcakeapp.fragments.StartFragment"
+        android:label="Cupcake"
+        tools:layout="@layout/fragment_start">
+        <action
+            android:id="@+id/action_startFragment_to_flavorFragment"
+            app:destination="@id/flavorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/flavorFragment"
+        android:name="com.alexaat.cupcakeapp.fragments.FlavorFragment"
+        android:label="Choose Flavor"
+        tools:layout="@layout/fragment_flavor">
+        <action
+            android:id="@+id/action_flavorFragment_to_dateFragment"
+            app:destination="@id/dateFragment" />
+        <action
+            android:id="@+id/action_flavorFragment_to_startFragment"
+            app:destination="@id/startFragment"
+            app:popUpTo="@id/startFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/dateFragment"
+        android:name="com.alexaat.cupcakeapp.fragments.DateFragment"
+        android:label="Pickup date"
+        tools:layout="@layout/fragment_date">
+        <action
+            android:id="@+id/action_dateFragment_to_summaryFragment"
+            app:destination="@id/summaryFragment" />
+        <action
+            android:id="@+id/action_dateFragment_to_startFragment"
+            app:destination="@id/startFragment"
+            app:popUpTo="@id/startFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/summaryFragment"
+        android:name="com.alexaat.cupcakeapp.fragments.SummaryFragment"
+        android:label="Order Summary"
+        tools:layout="@layout/fragment_summary" >
+        <action
+            android:id="@+id/action_summaryFragment_to_startFragment"
+            app:destination="@id/startFragment"
+            app:popUpTo="@id/startFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
